@@ -1,10 +1,10 @@
 import sys,os
-sys.path.append("../circos_report/sv_circos")
+sys.path.append("../")
 import json
 
-from svconf import produce_config
+from circos_report.cnv_circos.cnvconf import produce_config
 
-with open("TempltRendrParms_sv.json", "r") as f:
+with open("TempltRendrParms_cnv.json", "r") as f:
     circos_input = json.loads(f.read())
 
 def test_pro():
