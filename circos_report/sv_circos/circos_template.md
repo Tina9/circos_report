@@ -1,0 +1,45 @@
+karyotype = {{ karytotype }}
+chromosomes_units = {{ chrom_unit }}
+
+chromosomes_display_default = yes
+
+<<include /lustre/users/zhangxu/miniconda2/1.circos/ideogram.conf>>
+<<include /lustre/users/zhangxu/miniconda2/1.circos/ticks.conf>>
+
+<image>
+<<include /lustre/users/zhangxu/miniconda2/etc/image.conf>>
+</image>
+
+<links>
+
+<link>
+file = {{ SV }}
+radius = 0.80r
+color = red
+bezier_radius = 0.1r
+thickness = 1
+</link>
+
+</links>
+
+<plots>
+
+<plot>
+
+type = line
+thickness = 2
+max_gap = 1u
+file = {{ depth }}
+color = black
+min = 0
+max = 1.0
+r0 = 1.005r
+r1 = 1.05r
+fill_color = vdred
+</plot>
+
+</plots>
+
+<<include /lustre/users/zhangxu/miniconda2/etc/colors_fonts_patterns.conf>>
+<<include /lustre/users/zhangxu/miniconda2/etc/housekeeping.conf>>
+
