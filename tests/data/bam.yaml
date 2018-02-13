@@ -1,0 +1,17 @@
+bams:
+    sample1: /lustre/users/zhangxu/DevWork/cnv_report/tests/data/22.tumor.ready.bam
+    sample2: /lustre/users/zhangxu/DevWork/cnv_report/tests/data/22.normal.ready.bam
+
+groups:
+    patient0:
+        tumor: /lustre/users/zhangxu/DevWork/cnv_report/tests/data/22.tumor.ready.bam
+        normal: /lustre/users/zhangxu/DevWork/cnv_report/tests/data/22.normal.ready.bam
+
+snv:
+    patient0: /lustre/users/zhangxu/DevWork/circos_report/tests/data/patient1.mutect2_snv.anno.tsv
+
+cnv:
+    patient0: /lustre/users/zhangxu/DevWork/circos_report/tests/data/22.tumor.ready.cnv.info.anno.txt
+
+sv:
+    patient0: /lustre/users/zhangxu/DevWork/circos_report/tests/data/22.tumor.ready.mergeavi.anno.txt

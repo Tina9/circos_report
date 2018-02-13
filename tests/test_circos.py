@@ -3,9 +3,11 @@ sys.path.append("../")
 
 from circos_report.reporter.circos import circos
 
+kind = "data/circos.snv.conf" 
+
 def test_circos():
 
-    circos()
+    circos(kind)
 
 
 if __name__ == "__main__":

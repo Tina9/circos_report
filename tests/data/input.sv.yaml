@@ -1,0 +1,5 @@
+karytotype: /lustre/users/zhangxu/miniconda2/data/karyotype/karyotype.human.hg19.txt
+chrom_unit: 1000000
+SV: /lustre/users/zhangxu/ProjWork/3.ctDNA/2.call_SV/res/circos.txt
+depth: /lustre/users/zhangxu/DevWork/1.circos/circos.depth.try.txt
+
