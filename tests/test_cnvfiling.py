@@ -9,9 +9,9 @@ from circos_report.filing.cnv_filing import cnv_filing
 
 def test_cnv_filing():
 
-	cnv_filing(cnvinp, prefix)
+    cnv_filing(cnvinp, prefix)
 
 
 if __name__ == "__main__":
 
-	test_cnv_filing()
+    test_cnv_filing()

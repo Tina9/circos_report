@@ -9,14 +9,14 @@ prefix = "22.tumor.ready"
 
 def test_count_snp():
 
-	count_snp(specie, snp, prefix)
+    count_snp(specie, snp, prefix)
 
 def test_count_del():
 
-	count_del(specie, dele, prefix)
+    count_del(specie, dele, prefix)
 
 
 if __name__ == "__main__":
 
-	test_count_snp()
-	test_count_del()
+    test_count_snp()
+    test_count_del()

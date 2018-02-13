@@ -7,9 +7,9 @@ prefix = "22.tumor.ready"
 
 def test_snvfiling():
 
-	snv_filing(snvinput, prefix)
+    snv_filing(snvinput, prefix)
 
 if __name__ == "__main__":
 
-	test_snvfilin()
+    test_snvfilin()
 

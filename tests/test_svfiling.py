@@ -8,9 +8,9 @@ prefix = "22.tumor.ready"
 
 def test_sv_filing():
 
-	sv_filing(svinp, prefix)
+    sv_filing(svinp, prefix)
 
 
 if __name__ == "__main__":
 
-	test_sv_filing()
+    test_sv_filing()
