@@ -1,1 +1,0 @@
-/home/testData/circos/config.py

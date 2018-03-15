@@ -1,7 +1,0 @@
-params:
-    reference: /lustre/common/genomes/human/hg19/bwa_index/ucsc.hg19.fasta
-    target.bed: /lustre/users/zhangxu/DevWork/sv_report/tests/data/127.bed
-    circos_type: cnv
-    karytotype: /lustre/users/zhangxu/miniconda2/data/karyotype/karyotype.human.hg19.txt
-    chrom_unit: 1000000
-    specie: /lustre/users/zhangxu/DevWork/circos_report/circos_report/filing/hs_circos.txt
