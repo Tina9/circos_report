@@ -26,20 +26,20 @@ def cal_MM(finame):
 
     return min_value, max_value
 
+#    '''get the max and min value of the circos input file
+#    params involve keys as follows:
+#
+#    Args:
+#        dict: including the file to get mm value
+#
+#    Returns:
+#        dict: a dict including mm value
+#
+#    the input dict includes following information:
+#        {"cnv_out": "patient1.cnv_circos.txt"}
+#
+#    '''
 def cal_cnvMM(params):
-    '''get the max and min value of the circos input file
-    params involve keys as follows:
-
-    Args:
-        dict: including the file to get mm value
-
-    Returns:
-        dict: a dict including mm value
-
-    the input dict includes following information:
-        {"cnv_out": "patient1.cnv_circos.txt"}
-
-    '''
 
     cnv_file = params['plotinfo']['cnv_out']
 
@@ -50,18 +50,19 @@ def cal_cnvMM(params):
 
     return params
 
+
+#    '''params include keys as follows:
+#    {
+#        "plotinfo": 
+#            {"karytotype": "/lustre/users/zhangxu/miniconda2/data/karyotype/karyotype.human.hg19.txt", 
+#            "chrom_unit": 1000000, 
+#            "species": "data/hs_circos.txt",            
+#            "cnv_out": "patient1.cnv_circos.txt"}, 
+#        "prefix": "patient1", 
+#        "cnv_out": "patient1.cnv_circos.txt",
+#    }
+#    '''
 def params_filing(params):
-    '''params include keys as follows:
-    {
-        "plotinfo": 
-            {"karytotype": "/lustre/users/zhangxu/miniconda2/data/karyotype/karyotype.human.hg19.txt", 
-            "chrom_unit": 1000000, 
-            "species": "data/hs_circos.txt",            
-            "cnv_out": "patient1.cnv_circos.txt"}, 
-        "prefix": "patient1", 
-        "cnv_out": "patient1.cnv_circos.txt", 
-    }
-    '''
 
     params = cal_cnvMM(params)
 
@@ -70,30 +71,30 @@ def params_filing(params):
 
     return params
 
+#    '''get the conf file of circos script
+#
+#    Args:
+#        dict: including mm value
+#    
+#    Return:
+#        dict: a dict including mm value and so on
+#
+#    Dict is as follows:
+#        {
+#        "plotinfo": 
+#            {"cnv_min": 0, 
+#            "karytotype": "/lustre/users/zhangxu/miniconda2/data/karyotype/karyotype.human.hg19.txt", 
+#            "cnv_max": 1, 
+#            "chrom_unit": 1000000, 
+#            "species": "data/hs_circos.txt", 
+#            'outfile': "data/patient1_circos.cnv.png",           
+#            "cnv_out": "patient1.cnv_circos.txt"}, 
+#        "prefix": "patient1", 
+#        "outconf" "patient1_circos.cnv.conf",
+#        "circos_cnv_tmp": "/lustre/users/zhangxu/DevWork/circos_report/tests/data/circos_template.md"
+#        }
+#    '''
 def produce_config(pconf_params):
-    '''get the conf file of circos script
-
-    Args:
-        dict: including mm value
-    
-    Return:
-        dict: a dict including mm value and so on
-
-    Dict is as follows:
-        {
-        "plotinfo": 
-            {"cnv_min": 0, 
-            "karytotype": "/lustre/users/zhangxu/miniconda2/data/karyotype/karyotype.human.hg19.txt", 
-            "cnv_max": 1, 
-            "chrom_unit": 1000000, 
-            "species": "data/hs_circos.txt", 
-            'outfile': "data/patient1_circos.cnv.png",           
-            "cnv_out": "patient1.cnv_circos.txt"}, 
-        "prefix": "patient1", 
-        "outconf" "patient1_circos.cnv.conf",
-        "circos_cnv_tmp": "/lustre/users/zhangxu/DevWork/circos_report/tests/data/circos_template.md"
-        }
-    '''
 
     params = params_filing(pconf_params)        
     

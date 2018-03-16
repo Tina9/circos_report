@@ -21,10 +21,8 @@ def file_arrange(param):
         cmd = "cp %s %s" % (fi, tgtdir)
         log.run("arrange files", cmd)
 
+#param = {"pngs": ["data/circos.cnv.png","data/circos.cnv.png"]}
 def projson(param):
-    '''
-    param = {"pngs": ["data/circos.cnv.png","data/circos.cnv.png"]}
-    '''
 
     files = param["pngs"]
 
@@ -58,9 +56,25 @@ def projson(param):
     return param
 
 def arr_main(params):
-    '''params = {
-        "pngs": ["data/circos.cnv.png","data/circos.cnv.png"],
-        }
+    '''params are an input dict which has the following keys
+
+    Args:
+        params(dict): which has the following keys::
+
+            {
+                "pngs": ["data/circos.cnv.png","data/circos.cnv.png"],
+
+            }
+    
+    Returns:
+        dict : which has the following keys::
+
+            {
+                'pngs': ['patient1_circos.multi.png'], 
+                'render_json': 'report.json', 
+                'dir': 'report'
+            }
+
     '''
     ### move the file to profit location
     params["dir"] = "report"

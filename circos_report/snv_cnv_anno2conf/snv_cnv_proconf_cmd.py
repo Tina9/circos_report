@@ -81,48 +81,50 @@ def main_snv_cnv(params):
 
     Args:
         params(dict): which has the following keys::
-        {
-        "plotinfo":    
+
             {
-                "karytotype": "data/karyotype.human.hg19.txt", 
-                "chrom_unit": 1000000, 
-                "species": "data/hs_circos.txt"
-            }, 
-        "circos_snv_cnv_tmp": "data/circos_snv_cnv_template.md", 
-        "snvinp": "data/test.mutect2_snv.anno.txt", 
-        "prefix": "patient1", 
-        "cnvinp": "data/22.tumor.ready.cnv.info.anno.txt",
-        "circos_report_template": "data/circos_report_template.md"
-        }
+            "plotinfo":    
+                {
+                    "karytotype": "data/karyotype.human.hg19.txt", 
+                    "chrom_unit": 1000000, 
+                    "species": "data/hs_circos.txt"
+                }, 
+            "circos_snv_cnv_tmp": "data/circos_snv_cnv_template.md", 
+            "snvinp": "data/test.mutect2_snv.anno.txt", 
+            "prefix": "patient1", 
+            "cnvinp": "data/22.tumor.ready.cnv.info.anno.txt",
+            "circos_report_template": "data/circos_report_template.md"
+            }
 
     Returns:
         dict : which has the following keys::
-        {
-        "outconf": "patient1_circos.snv.cnv.conf", 
-        "circos_snv_cnv_tmp": "data/circos_snv_cnv_template.md", 
-        "snvinp": "data/test.mutect2_snv.anno.txt", 
-        "circos_report_template": "data/circos_report_template.md", 
-        "plotinfo": 
+
             {
-                "snp_min": 0.0, 
-                "indel_out": "patient1.indel_circos.txt", 
-                "cnv_out": "patient1.cnv_circos.txt", 
-                "karytotype": "data/karyotype.human.hg19.txt", 
-                "indel_min": 0.0, 
-                "snp_max": 7.0, 
-                "outfile": "patient1_circos.snv.cnv.png", 
-                "indel_max": 1.0, 
-                "snp_out": "patient1.snp_circos.txt", 
-                "chrom_unit": 1000000, 
-                "species": "data/hs_circos.txt", 
-                "cnv_max": 1.0, 
-                "cnv_min": 0.0  
-            }, 
-        "prefix": "patient1", 
-        "indel": "patient1.indel_snp.txt", 
-        "snp": "patient1.snp_snp.txt", 
-        "cnvinp": "data/22.tumor.ready.cnv.info.anno.txt"
-        }   
+            "outconf": "patient1_circos.snv.cnv.conf", 
+            "circos_snv_cnv_tmp": "data/circos_snv_cnv_template.md", 
+            "snvinp": "data/test.mutect2_snv.anno.txt", 
+            "circos_report_template": "data/circos_report_template.md", 
+            "plotinfo": 
+                {
+                    "snp_min": 0.0, 
+                    "indel_out": "patient1.indel_circos.txt", 
+                    "cnv_out": "patient1.cnv_circos.txt", 
+                    "karytotype": "data/karyotype.human.hg19.txt", 
+                    "indel_min": 0.0, 
+                    "snp_max": 7.0, 
+                    "outfile": "patient1_circos.snv.cnv.png", 
+                    "indel_max": 1.0, 
+                    "snp_out": "patient1.snp_circos.txt", 
+                    "chrom_unit": 1000000, 
+                    "species": "data/hs_circos.txt", 
+                    "cnv_max": 1.0, 
+                    "cnv_min": 0.0  
+                }, 
+            "prefix": "patient1", 
+            "indel": "patient1.indel_snp.txt", 
+            "snp": "patient1.snp_snp.txt", 
+            "cnvinp": "data/22.tumor.ready.cnv.info.anno.txt"
+            }   
     """
     
     jsonfile = params['prefix'] + "_transfer.json"

@@ -41,6 +41,7 @@ def main_sv(params):
 
     Args:
         params(dict): which has the following keys::
+
             {
                 "plotinfo": 
                     {
@@ -57,22 +58,23 @@ def main_sv(params):
 
     Returns:
         dict : which has the following keys::
-        {
-        "outconf": "patient1_circos.sv.conf", 
-        "circos_report_template": "data/circos_report_template.md", 
-        "plotinfo": 
+
             {
-                "sv_out": "patient1.sv_circos.txt", 
-                "outfile": "patient1_circos.sv.png", 
-                "chrom_unit": 1000000, 
-                "species": "data/hs_circos.txt", 
-                "karytotype": "data/karyotype.human.hg19.txt"
-            }, 
-        "prefix": "patient1", 
-        "svinp": "data/22.tumor.ready.mergeavi.anno.txt", 
-        "circos_snv_tmp": "data/circos_snv_template.md", 
-        "circos_sv_tmp": "data/circos_sv_template.md"
-        }
+                "outconf": "patient1_circos.sv.conf", 
+                "circos_report_template": "data/circos_report_template.md", 
+                "plotinfo": 
+                {
+                    "sv_out": "patient1.sv_circos.txt", 
+                    "outfile": "patient1_circos.sv.png", 
+                    "chrom_unit": 1000000, 
+                    "species": "data/hs_circos.txt", 
+                    "karytotype": "data/karyotype.human.hg19.txt"
+                }, 
+                "prefix": "patient1", 
+            "svinp": "data/22.tumor.ready.mergeavi.anno.txt", 
+            "circos_snv_tmp": "data/circos_snv_template.md", 
+            "circos_sv_tmp": "data/circos_sv_template.md"
+            }
     """
 
     jsonfile = params['prefix'] + "_transfer.json"

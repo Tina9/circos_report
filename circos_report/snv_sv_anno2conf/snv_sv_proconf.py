@@ -2,9 +2,6 @@ import sys
 import os
 import json
 import jbiot
-import jinja2
-
-#from jbiot import jbiotWorker
 from jinja2 import Template
 
 def cal_MM(finame):

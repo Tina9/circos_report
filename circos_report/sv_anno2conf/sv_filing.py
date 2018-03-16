@@ -1,21 +1,16 @@
-try:
-    from config import os
-    from config import sys
-    from config import json
-except:
-    import os
-    import sys
-    import json
-    
+import os
+import sys
+import json    
 from jbiot import jbiotWorker
 
+#    '''params include keys as follows:
+#    {
+#        "svinp": "data/22.tumor.ready.mergeavi.anno.txt",
+#        "prefix" "22.tumor.ready"
+#    }
+#    '''
+
 def sv_filing_sep(params):
-    '''params include keys as follows:
-    {
-        "svinp": "data/22.tumor.ready.mergeavi.anno.txt",
-        "prefix" "22.tumor.ready"
-    }
-    '''
     
     svinp = params["svinp"]
     prefix = params["prefix"]

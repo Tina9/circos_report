@@ -1,16 +1,6 @@
-try:
-    from config import sys
-    from config import os
-    from config import json
-    from config import jbiot
-    from config import jinja2
-except:
-    import sys
-    import os
-    import json
-    import jbiot
-    import jinja2
-
+import sys
+import os
+import json
 from jbiot import jbiotWorker
 from jinja2 import Template
 

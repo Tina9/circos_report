@@ -58,7 +58,49 @@ def confCMD(jsonfile):
 ###########################################################
 
 def main_cnv_sv(params):
-    
+
+    """params are an input dict which has the following keys
+
+    Args:
+        params(dict): which has the following keys::
+
+            {
+                "plotinfo":
+                {
+                    "karytotype": "data/karyotype.human.hg19.txt",
+                    "chrom_unit": 1000000,
+                    "species": "data/hs_circos.txt",
+                },
+            "circos_cnv_sv_tmp": "data/circos_cnv_sv_template.md",
+            "svinp": "data/22.tumor.ready.mergeavi.anno.txt",
+            "prefix": "patient1",
+            "cnvinp": "data/22.tumor.ready.cnv.info.anno.txt",
+            "circos_report_template": "data/circos_report_template.md"
+         }
+
+    Returns:
+        dict : which has the following keys::
+
+            {
+                "plotinfo": 
+                {
+                    "cnv_min": 0, 
+                    "karytotype": "data/karyotype.human.hg19.txt", 
+                    "sv_out": "patient1.sv_circos.txt", 
+                    "outfile": "patient1_circos.cnv.sv.png", 
+                    "cnv_max": 1, "chrom_unit": 1000000, 
+                    "species": "data/hs_circos.txt", 
+                    "cnv_out": "patient1.cnv_circos.txt"
+                }, 
+                "circos_cnv_sv_tmp": "data/circos_cnv_sv_template.md", 
+                "circos_report_template": "data/circos_report_template.md", 
+                "outconf": "patient1_circos.cnv.sv.conf", 
+                "prefix": "patient1", 
+                "svinp": "data/22.tumor.ready.mergeavi.anno.txt", 
+                "cnvinp": "data/22.tumor.ready.cnv.info.anno.txt"
+            }
+    """    
+
     jsonfile = params['prefix'] + "_transfer.json"
 
     ### get the input file of circmd

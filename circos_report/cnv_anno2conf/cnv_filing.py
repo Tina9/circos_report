@@ -12,13 +12,14 @@ from jbiot import jbiotWorker
 ################## convert the output of cnvkit into the circos input ######################################
 ############################################################################################################
 
+#    '''params include keys as follows:
+#        {
+#        "cnvinp": "data/22.tumor.ready.cnv.info.anno.txt",
+#        "prefix": "22.tumor.ready",
+#         }    
+#    '''
+
 def cnv_filing_count(params):
-    '''params include keys as follows:
-        {
-        "cnvinp": "data/22.tumor.ready.cnv.info.anno.txt",
-        "prefix": "22.tumor.ready",
-         }    
-    '''
 
     cnvinp = params["cnvinp"]
     prefix = params["prefix"]
