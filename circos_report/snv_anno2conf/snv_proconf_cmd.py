@@ -53,20 +53,20 @@ def main_snv(params):
     '''params are an input dict which has the following keys
 
         Args:
-        params(dict): which has the following keys::
+            params(dict): which has the following keys::
         
-            {
-                "snvinp": "data/test.mutect2_snv.anno.txt",
-                "circos_report_template": "data/circos_report_template.md",
-                "circos_snv_tmp": "data/circos_snv_template.md",
-                "prefix": "patient1",
-                "plotinfo":
-                    {
-                        "chrom_unit": 1000000,
-                        "species": "data/hs_circos.txt",
-                        "karytotype": "data/karyotype.human.hg19.txt"
-                    }
-            }
+                {
+                    "snvinp": "data/test.mutect2_snv.anno.txt",
+                    "circos_report_template": "data/circos_report_template.md",
+                    "circos_snv_tmp": "data/circos_snv_template.md",
+                    "prefix": "patient1",
+                    "plotinfo":
+                        {
+                            "chrom_unit": 1000000,
+                            "species": "data/hs_circos.txt",
+                            "karytotype": "data/karyotype.human.hg19.txt"
+                        }
+                }
 
     Returns:
         dict: which has the following keys::
