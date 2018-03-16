@@ -43,29 +43,29 @@ def snv_filing_sep(params):
 
     return params
 
+#    '''read in a json file and separate it
+
+#    Args:
+#        json(dict): keys are as follows::
+#
+#            {
+#                "snvinp": "data/patient1.mutect2_snv.anno.tsv",
+#                "prefix": "patient1",
+#            }
+
+#    Returns:
+#        json(dict): keys are as follows::
+#
+#            {
+#                "snvinp": "data/patient1.mutect2_snv.anno.tsv",
+#                "prefix": "patient1",
+#                "snp": "patient1.snp_snp.txt",
+#                "indel": "patient1.indel_snp.txt",
+#            }
+#   '''
 
 def snv_filing(jsonfile):
 
-    '''read in a json file and separate it
-
-    Args:
-        json(dict): keys are as follows::
-
-            {
-                "snvinp": "data/patient1.mutect2_snv.anno.tsv",
-                "prefix": "patient1",
-            }
-
-    Returns:
-        json(dict): keys are as follows::
-
-            {
-                "snvinp": "data/patient1.mutect2_snv.anno.tsv",
-                "prefix": "patient1",
-                "snp": "patient1.snp_snp.txt",
-                "indel": "patient1.indel_snp.txt",
-            }
-   '''
 
     with open(jsonfile, "r") as f_obj:
         params = json.load(f_obj)

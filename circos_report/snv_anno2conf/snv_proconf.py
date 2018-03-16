@@ -22,21 +22,21 @@ def cal_MM(finame):
 
     return min_value, max_value
 
+#    '''get the max and min value of a file's 4th column 
+#    params involve keys as follows:
+#    
+#    Args:
+#        dict: including the file to get mm value
+#
+#    Returns:
+#        dict: a dict including mm value
+#
+#    the input dict includes following infomation:
+#        {'snp_out': 'data/22.tumor.ready.snp_circos.txt',
+#        'indel_out': 'data/22.tumor.ready.indel_circos.txt',}
+#
+#    '''
 def cal_snvMM(params):
-    '''get the max and min value of a file's 4th column 
-    params involve keys as follows:
-    
-    Args:
-        dict: including the file to get mm value
-
-    Returns:
-        dict: a dict including mm value
-
-    the input dict includes following infomation:
-        {'snp_out': 'data/22.tumor.ready.snp_circos.txt',
-        'indel_out': 'data/22.tumor.ready.indel_circos.txt',}
-
-    '''
 
     snp_file = params['plotinfo']['snp_out']
     indel_file = params['plotinfo']['indel_out']
@@ -51,23 +51,24 @@ def cal_snvMM(params):
 
     return params
 
+#     '''params include keys as follows:
+#    {
+#        "cirSNV": "data/circos_snv_template.md",
+#        "prefix": "patient1.mutect2_snv.anno"
+#        "plot_info": {
+#                    "karytotype": "/lustre/users/zhangxu/miniconda2/data/karyotype/karyotype.human.hg19.txt",
+#                    "chrom_unit": 1000000,
+#                    "snp_out": "data/22.tumor.ready.snp_circos.txt",
+#                    "indel_out": "data/22.tumor.ready.indel_circos.txt",
+#                    "snp_min": 1
+#                    "snp_max": 2
+#                    "indel_min": 0
+#                    "indel_max": 2
+#                    }
+#    }
+#    '''
+
 def params_filing(pconf_params):
-    '''params include keys as follows:
-    {
-        "cirSNV": "data/circos_snv_template.md",
-        "prefix": "patient1.mutect2_snv.anno"
-        "plot_info": {
-                    "karytotype": "/lustre/users/zhangxu/miniconda2/data/karyotype/karyotype.human.hg19.txt",
-                    "chrom_unit": 1000000,
-                    "snp_out": "data/22.tumor.ready.snp_circos.txt",
-                    "indel_out": "data/22.tumor.ready.indel_circos.txt",
-                    "snp_min": 1
-                    "snp_max": 2
-                    "indel_min": 0
-                    "indel_max": 2
-                    }
-    }
-    '''
 
     params = cal_snvMM(pconf_params)
     
@@ -76,27 +77,28 @@ def params_filing(pconf_params):
 
     return params
 
+#    '''get the conf file of circos script
+#
+#    Args:
+#        dict: including the file to get mm value
+#
+#    Returns:
+#        dict: a dict including mm value and so on
+#
+#    Dict are as follows:
+#        {'indel': 'data/patient1.indel_snp.txt', 
+#        'snvinp': 'data/patient1.mutect2_snv.anno.tsv', 
+#        'plotinfo': {'indel_out': 'data/patient1.indel_circos.txt', 
+#                    'snp_out': 'data/patient1.snp_circos.txt', 
+#                    'chrom_unit': 1000000, 
+#                    'species': 'data/hs_circos.txt',
+#                    'karytotype': '/lustre/users/zhangxu/miniconda2/data/karyotype/karyotype.human.hg19.txt'}, 
+#        'prefix': 'patient1', 
+#        'circos_snv_tmp': 'data/circos_snv_template.md', 
+#        'snp': 'data/patient1.snp_snp.txt'}
+#    '''
+
 def produce_config(param):
-    '''get the conf file of circos script
-
-    Args:
-        dict: including the file to get mm value
-
-    Returns:
-        dict: a dict including mm value and so on
-
-    Dict are as follows:
-        {'indel': 'data/patient1.indel_snp.txt', 
-        'snvinp': 'data/patient1.mutect2_snv.anno.tsv', 
-        'plotinfo': {'indel_out': 'data/patient1.indel_circos.txt', 
-                    'snp_out': 'data/patient1.snp_circos.txt', 
-                    'chrom_unit': 1000000, 
-                    'species': 'data/hs_circos.txt',
-                    'karytotype': '/lustre/users/zhangxu/miniconda2/data/karyotype/karyotype.human.hg19.txt'}, 
-        'prefix': 'patient1', 
-        'circos_snv_tmp': 'data/circos_snv_template.md', 
-        'snp': 'data/patient1.snp_snp.txt'}
-    '''
 
     params = params_filing(param)
     
