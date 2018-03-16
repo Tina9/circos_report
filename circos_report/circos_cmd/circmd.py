@@ -4,12 +4,17 @@ from jbiot import log
 from jbiot import jbiotWorker
 
 def circosCMD(params):
-    '''params include keys as follows:
-    {
-        outconf: "data/circos.snv.conf"
-    }
+
+    '''arrange outfile to destination directory
+
+    Args:
+        params(dict): which has the following keys::
+
+            {
+                outconf: "data/circos.snv.conf"
+            }
     '''
-       
+
     confname = params["outconf"] 
     cmd = "perl %s -conf %s" % (circostool,confname)
 
