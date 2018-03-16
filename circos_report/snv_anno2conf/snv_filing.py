@@ -8,12 +8,6 @@ import json
 import sys
 
 def snv_filing_sep(params):
-    '''params include keys as follows:
-    {
-    "snvinp": "data/patient1.mutect2_snv.anno.tsv",
-    "prefix": "patient1",
-    }
-    '''
 
     snvinp = params["snvinp"]
     prefix = params["prefix"]
@@ -51,9 +45,10 @@ def snv_filing_sep(params):
 
 
 def snv_filing(jsonfile):
+
     '''read in a json file and separate it
     Args:
-        json(dict): keys are as follows
+        json(dict): keys are as follows::
 
         {
         "snvinp": "data/patient1.mutect2_snv.anno.tsv",
@@ -63,12 +58,12 @@ def snv_filing(jsonfile):
     Returns:
         json(dict): keys are as follow
 
-        {
+        ``{
         "snvinp": "data/patient1.mutect2_snv.anno.tsv",
         "prefix": "patient1",
         "snp": "patient1.snp_snp.txt",
         "indel": "patient1.indel_snp.txt",
-        }
+        }``
    '''
 
     with open(jsonfile, "r") as f_obj:
