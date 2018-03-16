@@ -47,6 +47,7 @@ def snv_filing_sep(params):
 def snv_filing(jsonfile):
 
     '''read in a json file and separate it
+
     Args:
         json(dict): keys are as follows::
 
@@ -56,7 +57,7 @@ def snv_filing(jsonfile):
          }
 
     Returns:
-        json(dict): keys are as follow
+        json(dict): keys are as follows::
 
         ``{
         "snvinp": "data/patient1.mutect2_snv.anno.tsv",
