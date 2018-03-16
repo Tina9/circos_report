@@ -54,6 +54,7 @@ def main_snv(params):
 
     Args:
         params(dict): which has the following keys::
+        
         {
             "snvinp": "data/test.mutect2_snv.anno.txt",
             "circos_report_template": "data/circos_report_template.md",
@@ -69,6 +70,7 @@ def main_snv(params):
 
     Returns:
         dict: which has the following keys::
+
             {
             "plotinfo": 
                 {

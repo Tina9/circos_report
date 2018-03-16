@@ -14,15 +14,6 @@ bedtools = "bedtools"
 #####################################################################
 
 def snp_indel_count(params):
-    '''params include keys as follows:
-        {"snp": "data/22.tumor.ready.snp_snp.txt",
-        "indel": "data/22.tumor.ready.indel_snp.txt",
-        "prefix": "22.tumor.ready"
-        "plotinfo": {
-            "species": "data/hs_circos.txt",
-            }
-        }
-    '''
 
     species = params["plotinfo"]["species"]
     prefix = params["prefix"]
