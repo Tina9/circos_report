@@ -1,13 +1,11 @@
-#coding=utf-8
-try:
-    from config import os
-    from config import sys
-    from config import json
-except:
-    import os
-    import sys
-    import json
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
+__author__ = "zhangxu"
+
+import os
+import sys
+import json
 from jbiot import log
 from jbiot import jbiotWorker
 
@@ -34,12 +32,6 @@ if not os.path.exists(snv_proconf):
 ######################################################
 
 def filingCMD(jsonfile):
-    ''' write the cmd of filint in run.cmd
-    Dict are as follows:
-        {"indel": "patient1.indel_snp.txt", 
-         "prefix": "patient1", 
-        }
-    '''
 
     cmd = "python %s %s" % (snv_filing, jsonfile)
     tag = "use the snv_filing script to get the separated file"
@@ -52,36 +44,55 @@ def countCMD(jsonfile):
     log.run(tag, cmd)
 
 def confCMD(jsonfile):
-    ''' write the cmd to get conf in run.cmd
-
-    Args:
-        Dict are as follows:
-            {'indel': 'data/patient1.indel_snp.txt', 
-            'snvinp': 'data/patient1.mutect2_snv.anno.tsv', 
-            'plotinfo': {'indel_out': 'data/patient1.indel_circos.txt', 
-                        'snp_out': 'data/patient1.snp_circos.txt', 
-                        'chrom_unit': 1000000, 
-                        'species': 'data/hs_circos.txt',
-                        'karytotype': '/lustre/users/zhangxu/miniconda2/data/karyotype/karyotype.human.hg19.txt'}, 
-            'prefix': 'patient1', 
-            'cirSNV': 'data/circos_snv_template.md', 
-            'snp': 'data/patient1.snp_snp.txt'}
-
-    Returns
-        Dict
-    '''
 
     cmd = "python %s %s" % (snv_proconf, jsonfile)
     tag = "get the conf file of circos"
     log.run(tag, cmd)
 
 def main_snv(params):
-    '''params include keys as follows:
+    '''params are an input dict which has the following keys
+
+    Args:
+        params(dict): which has the following keys::
         {
-        "snvinp": "data/patient1.mutect2_snv.anno.tsv",
-        "prefix": "patient1",
+            "snvinp": "data/test.mutect2_snv.anno.txt",
+            "circos_report_template": "data/circos_report_template.md",
+            "circos_snv_tmp": "data/circos_snv_template.md",
+            "prefix": "patient1",
+            "plotinfo":
+                {
+                    "chrom_unit": 1000000,
+                    "species": "data/hs_circos.txt",
+                    "karytotype": "data/karyotype.human.hg19.txt"
+                }
         }
+
+    Returns:
+        dict: which has the following keys::
+            {
+            "plotinfo": 
+                {
+                "snp_min": 0, 
+                "indel_out": "patient1.indel_circos.txt", 
+                "karytotype": "data/karyotype.human.hg19.txt", 
+                "indel_min": 0, 
+                "snp_max": 7, 
+                "outfile": "patient1_circos.snv.png", 
+                "indel_max": 1, 
+                "snp_out": "patient1.snp_circos.txt", 
+                "chrom_unit": 1000000, 
+                "species": "data/hs_circos.txt"
+                }, 
+            "snvinp": "data/test.mutect2_snv.anno.txt", 
+            "circos_report_template": "data/circos_report_template.md", 
+            "outconf": "patient1_circos.snv.conf", 
+            "prefix": "patient1", 
+            "indel": "patient1.indel_snp.txt", 
+            "snp": "patient1.snp_snp.txt", 
+            "circos_snv_tmp": "data/circos_snv_template.md"
+            } 
     '''
+
     jsonfile = params['prefix'] + "_transfer.json"
 
     ### get the input file of circmd
@@ -98,6 +109,7 @@ def main_snv(params):
 
     return params
 
+#==========for omics platform============#
 class confSNV_Worker(jbiotWorker):
     def handle_task(self,key,params):
         self.execMyfunc(main_snv,params)

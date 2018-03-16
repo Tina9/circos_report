@@ -1,13 +1,11 @@
-#try:
-#    from config import os
-#    from config import json
-#    from config import sys
-#except:
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+__author__ = "zhangxu"
+
 import os
 import json
 import sys
-
-#from jbiot import jbiotWorker
 
 def snv_filing_sep(params):
     '''params include keys as follows:
@@ -20,25 +18,27 @@ def snv_filing_sep(params):
     snvinp = params["snvinp"]
     prefix = params["prefix"]
 
+    title_index = open(snvinp, "r").readline().split("\t").index("VarType")
+
     with open(snvinp, "r") as fp:
         for info in fp:
             snp_line = []
             indel_line = []
             snp_name = prefix + ".snp_snp.txt"
             indel_name = prefix + ".indel_snp.txt"
-            if info.split("\t").index('VarType') == "snp":
+            if info.split("\t")[title_index] == "snp":
                 snp_chro = info.split("\t")[0].replace("chr", "hs")
                 snp_start = info.split("\t")[1]
-                snp_kind = info.split("\t")[22]
+                snp_kind = info.split("\t")[title_index]
                 snp_line = [snp_chro,snp_start,snp_start,snp_kind]
                 with open(snp_name, "a") as snp:
                     snp_lines = '\t'.join(snp_line) + "\n"
                     snp.write(snp_lines)
 
-            elif info.split("\t").index('VarType') == "del" or info.split("\t").index('VarType') == "ins":
+            elif info.split("\t")[title_index] == "del" or info.split("\t")[title_index] == "ins":
                 indel_chro = info.split("\t")[0].replace("chr", "hs")
                 indel_start = info.split("\t")[1]
-                indel_kind = info.split("\t")[22]
+                indel_kind = info.split("\t")[title_index]
                 indel_line = [indel_chro,indel_start,indel_start,indel_kind]
                 with open(indel_name, "a") as dele:
                     indel_lines = '\t'.join(indel_line) + "\n"

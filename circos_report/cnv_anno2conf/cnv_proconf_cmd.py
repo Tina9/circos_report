@@ -1,13 +1,11 @@
-#coding = utf-8
-try:
-    from config import os
-    from config import sys
-    from config import json
-except:
-    import os
-    import sys
-    import json
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
+__author__ = "zhangxu"
+
+import os
+import sys
+import json
 from jbiot import log
 from jbiot import jbiotWorker
 
@@ -39,19 +37,42 @@ def confCMD(jsonfile):
     log.run(tag, cmd)
 
 def main_cnv(params):
-    """main_cnv params 
+    """params are an input dict which has the following keys 
 
     Args:
-        params (dict) : the params to ...::
-
+        params(dict): which has the following keys::
             {
-                "" : "",
-                "" : ""
-
+            "plotinfo": 
+                {
+                    "karytotype": "data/karyotype.human.hg19.txt", 
+                    "chrom_unit": 1000000, 
+                    "species": "data/hs_circos.txt"
+                }, 
+            "circos_report_template": "data/circos_report_template.md", 
+            "prefix": "patient1", 
+            "cnvinp": "data/22.tumor.ready.cnv.info.anno.txt", 
+            "circos_cnv_tmp": "data/circos_cnv_template.md"}
             }
 
     Returns:
-        dict : the description of the dict 
+        dict : which has the following keys::
+        {
+        "outconf": "patient1_circos.cnv.conf", 
+        "circos_cnv_tmp": "data/circos_cnv_template.md", 
+        "circos_report_template": "data/circos_report_template.md", 
+        "plotinfo": 
+            {
+                "cnv_min": 0, 
+                "karytotype": "data/karyotype.human.hg19.txt", 
+                "outfile": "patient1_circos.cnv.png", 
+                "cnv_max": 1, 
+                "chrom_unit": 1000000, 
+                "species": "data/hs_circos.txt", 
+                "cnv_out": "patient1.cnv_circos.txt"
+            }, 
+        "prefix": "patient1", 
+        "cnvinp": "data/22.tumor.ready.cnv.info.anno.txt"
+        }
 
     """
 

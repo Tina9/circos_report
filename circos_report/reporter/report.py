@@ -1,10 +1,14 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+__author__ = "zhangxu"
+
 try:
     from config import render
     from config import md2html
 except:
     render = "render.py"
     md2html = "md2html.py"
-from jbiot import log
 import os
 from jbiot import jbiotWorker
 from jbiot import log
@@ -24,6 +28,24 @@ def get_file(remotefile):
     return 
 
 def report(params):
+
+    '''params is a input dict which has the following keys
+
+    Args:
+        params(dict): which has the following keys::
+
+            {
+                render_json  : data/circos_report_template.md
+                report_template  : data/report.json
+            }
+
+    Returns:
+        dict: which has the following keys:: 
+            {
+            "snvReport": "report.md"
+            }
+    '''
+
     # get template
     templ = params["report_template"]
     if templ.startswith("http://"):

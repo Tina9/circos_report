@@ -1,17 +1,12 @@
-#try:
-#    from config import sys
-#    from config import os
-#    from config import json
-#    from config import jbiot
-#    from config import jinja2
-#except:
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+__author__ = "zhangxu"
+
 import os
 import sys
 import json
 import jbiot
-import jinja2
-
-#from jbiot import jbiotWorker
 from jinja2 import Template
 
 def cal_MM(finame):
@@ -21,7 +16,7 @@ def cal_MM(finame):
 
     with open(finame, 'r') as f:
         for line in f:
-            value.append(int(line.rstrip().split("\t")[3]))
+            value.append(float(line.rstrip().split("\t")[3]))
     min_value = min(value)
     max_value = max(value)
 
@@ -119,10 +114,6 @@ def produce_config(param):
         f_obj.write(circos_input)
 
     return params
-
-#class snvConf_Worker(jbiotWorker):
-#    def handle_task(self, key, params):
-#        self.execMyfunc(produce_config,params)
 
 if __name__ == "__main__":
 

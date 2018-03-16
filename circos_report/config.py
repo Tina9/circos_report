@@ -1,1 +1,1 @@
-/home/testData/circos/config.py
+/home/testData/circos_report/config.py

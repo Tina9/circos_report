@@ -1,15 +1,16 @@
-#coding=utf-8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+__author__ = "zhangxu"
+
 try:
-    from config import os
-    from config import sys
-    from config import json
     from config import bedtools
 except:
     bedtools = "bedtools"
-    import os
-    import sys
-    import json
-
+  
+import os
+import sys
+import json
 from jbiot import log
 from jbiot import jbiotWorker
 
@@ -76,7 +77,54 @@ def confCMD(jsonfile):
 ###########################################################
 
 def main_snv_cnv(params):
+    """params are an input dict which has the following keys 
 
+    Args:
+        params(dict): which has the following keys::
+        {
+        "plotinfo":    
+            {
+                "karytotype": "data/karyotype.human.hg19.txt", 
+                "chrom_unit": 1000000, 
+                "species": "data/hs_circos.txt"
+            }, 
+        "circos_snv_cnv_tmp": "data/circos_snv_cnv_template.md", 
+        "snvinp": "data/test.mutect2_snv.anno.txt", 
+        "prefix": "patient1", 
+        "cnvinp": "data/22.tumor.ready.cnv.info.anno.txt",
+        "circos_report_template": "data/circos_report_template.md"
+        }
+
+    Returns:
+        dict : which has the following keys::
+        {
+        "outconf": "patient1_circos.snv.cnv.conf", 
+        "circos_snv_cnv_tmp": "data/circos_snv_cnv_template.md", 
+        "snvinp": "data/test.mutect2_snv.anno.txt", 
+        "circos_report_template": "data/circos_report_template.md", 
+        "plotinfo": 
+            {
+                "snp_min": 0.0, 
+                "indel_out": "patient1.indel_circos.txt", 
+                "cnv_out": "patient1.cnv_circos.txt", 
+                "karytotype": "data/karyotype.human.hg19.txt", 
+                "indel_min": 0.0, 
+                "snp_max": 7.0, 
+                "outfile": "patient1_circos.snv.cnv.png", 
+                "indel_max": 1.0, 
+                "snp_out": "patient1.snp_circos.txt", 
+                "chrom_unit": 1000000, 
+                "species": "data/hs_circos.txt", 
+                "cnv_max": 1.0, 
+                "cnv_min": 0.0  
+            }, 
+        "prefix": "patient1", 
+        "indel": "patient1.indel_snp.txt", 
+        "snp": "patient1.snp_snp.txt", 
+        "cnvinp": "data/22.tumor.ready.cnv.info.anno.txt"
+        }   
+    """
+    
     jsonfile = params['prefix'] + "_transfer.json"
 
     ### get the input file of circmd

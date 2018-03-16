@@ -1,12 +1,11 @@
-try:
-    from config import os
-    from config import sys
-    from config import json
-except:
-    import os
-    import sys
-    import json
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
+__author__ = "zhangxu"
+
+import os
+import sys
+import json
 from jbiot import jbiotWorker
 
 ############################################################################################################
@@ -24,15 +23,21 @@ def cnv_filing_count(params):
     cnvinp = params["cnvinp"]
     prefix = params["prefix"]
 
+    title_fold_change = open(cnvinp, "r").readline().split("\t").index("CopyNumber")
+    title_chr = open(cnvinp, "r").readline().split("\t").index("Chr")
+    title_start = open(cnvinp, "r").readline().split("\t").index("Start")
+    title_end = open(cnvinp, "r").readline().split("\t").index("End")
+
+
     out_file = prefix + ".cnv_circos.txt"
     lines = []
     with open(cnvinp, "r") as cnv:
         for line in cnv:
-            if line.split("\t")[0] != "Chr":
-                hs = line.split("\t")[0].replace("chr", "hs")
-                start = line.split("\t")[1] 
-                end = line.split("\t")[2]
-                cp = line.split("\t")[6]
+            if line.split("\t")[title_chr] != "Chr":
+                hs = line.split("\t")[title_chr].replace("chr", "hs")
+                start = line.split("\t")[title_start]
+                end = line.split("\t")[title_end]
+                cp = line.split("\t")[title_fold_change]
                 lines = [hs, start, end, cp]
                 with open(out_file, "a") as fw:
                     cnv_line = "\t".join(lines) + "\n"
@@ -51,10 +56,6 @@ def cnv_filing(jsonfile):
     with open(jsonfile, 'w') as f_w_obj:
         json.dump(cnv_params, f_w_obj)
 
-#================for omics platfoorm===================
-class cnvFiling_Worker(jbiotWorker):
-    def handle_task(self, key, paramsotWorker):
-        self.execMyfunc(cnv_filing,params)
 
 if __name__ == "__main__":
 

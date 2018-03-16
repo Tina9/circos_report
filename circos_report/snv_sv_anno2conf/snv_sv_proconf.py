@@ -1,10 +1,3 @@
-#try:
-#    from config import sys
-#    from config import os
-#    from config import json
-#    from config import jbiot
-#    from config import jinja2
-#except:
 import sys
 import os
 import json
@@ -21,7 +14,7 @@ def cal_MM(finame):
 
     with open(finame, 'r') as f:
         for line in f:
-            value.append(int(line.rstrip().split("\t")[3]))
+            value.append(float(line.rstrip().split("\t")[3]))
     min_value = min(value)
     max_value = max(value)
 

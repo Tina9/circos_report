@@ -1,8 +1,10 @@
-# coding=utf-8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+__author__ = "zhangxu"
 
 import json
 import os
-
 from jbiot import log
 from jbiot import jbiotWorker
 

@@ -2,4 +2,4 @@
 Developers
 ==========
 
-* KongDeju <kongdeju@gene.ac>
+* zhangxu <zhangxu@gene.ac>

@@ -297,7 +297,6 @@ def main_circos(params):
     to_be_chosen_params = parse_yml_parameter(params)
 
     choose_param = choose_proConf_CMD(to_be_chosen_params)
-    print choose_param
 
     ### arrange the file
     jsonfile_param = arr_main(choose_param) 

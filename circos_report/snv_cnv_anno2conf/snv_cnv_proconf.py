@@ -21,7 +21,7 @@ def cal_MM(finame):
 
     with open(finame, 'r') as f:
         for line in f:
-            value.append(int(line.rstrip().split("\t")[3]))
+            value.append(float(line.rstrip().split("\t")[3]))
     min_value = min(value)
     max_value = max(value)
 
