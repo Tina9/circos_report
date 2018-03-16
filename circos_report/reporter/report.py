@@ -43,7 +43,7 @@ def report(params):
         dict: which has the following keys:: 
 
             {
-            "snvReport": "report.md"
+                "snvReport": "report.md"
             }
     '''
 
