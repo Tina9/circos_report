@@ -7,7 +7,10 @@ import os
 import sys
 import json
 
-bedtools = "bedtools"
+try:
+    from config import bedtools
+except:
+    bedtools = "bedtools"
 
 #####################################################################
 ############## Using snv_count to get the count CMD #################
