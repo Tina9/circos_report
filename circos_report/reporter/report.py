@@ -1,70 +1,50 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-__author__ = "zhangxu"
-
 try:
     from config import render
     from config import md2html
 except:
     render = "render.py"
     md2html = "md2html.py"
+from jbiot import log
 import os
 from jbiot import jbiotWorker
-from jbiot import log
-
-def get_file(remotefile):
-    home = os.environ["HOME"]
-    localfile = remotefile.split("/")[-1]
-    cmd = "wget %s -P %s/.templates " % (home,remotefile)
-
-    localfile = os.path.join(home,".templates",localfile)
-    if os.path.exists(localfile):
-        return localfile
-    tag = "get circos report templates"
-    log.run(tag,cmd)
-    if os.path.exists(localfile):
-        return localfile
-    return 
+from jbiot import get_template
+from jbiot import yamladd
+import yaml
+import json
 
 def report(params):
+    """ circos_report to markdown file and html file
 
-    '''params is a input dict which has the following keys
+    Args: report input dict, key is `yaml`, value is yaml file path::
 
-    Args:
-        params(dict): which has the following keys::
-
-            {
-                render_json  : data/circos_report_template.md
-                report_template  : data/report.json
-            }
+            "xx": path of xx.
 
     Returns:
-        dict: which has the following keys:: 
+        dict : key is `yaml`,value is yaml file path
+    """
+    # handle input
+    yamlin = params["yaml"]
+    indict = yaml.load(open(yamlin))
 
-            {
-                "snvReport": "report.md"
-            }
-    '''
+    yamlfile = "circos_report.yaml"
+    paramstr = json.dumps(indict)
+    cmd1 = "echo '%s' > %s " % (paramstr, yamlfile)
+    tag1 = "make sure the existed yaml file"
+    log.run("tag1", cmd1, i=None, o=[yamlfile]) 
 
-    # get template
-    templ = params["report_template"]
-    if templ.startswith("http://"):
-        templ = get_file(templ)
-
-    ijson = params["render_json"] 
+    templ = get_template("circos_report")
     out = "circos_report.md"
-    cmd = "%s -t %s -j %s -o %s" % (render,templ,ijson,out)
-    log.run("render mapping circos template",cmd,docker="kongdeju/alpine-dev:stable")
-
+    cmd = "%s -t %s -j %s -o %s -y" % (render,templ,yamlin,out)
+    log.run("render circos_report template",cmd)
+    
     cmd = "%s %s" % (md2html,out)
-    log.run("md2html circos report ",cmd,docker="kongdeju/alpine-dev:stable")
-
+    log.run("md2html circos_report ",cmd)
     outdict = {}
-    outdict["report_md"] = out
-    return outdict
+    outdict["circos_report"] = out
+    yamlout = yamladd(yamlin,outdict)
+    yamlout["circos_report_outdir"] = os.getcwd()
+    return yamlout
 
 class reportWorker(jbiotWorker):
     def handle_task(self,key,params):
         self.execMyfunc(report,params)
-

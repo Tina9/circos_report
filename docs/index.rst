@@ -4,39 +4,42 @@ circos_report
 
 This is the documentation of **circos_report**.
 
-.. note::
+Installation
+============
+use git to clone code::
 
-    This is the main page of your project's `Sphinx <http://sphinx-doc.org/>`_
-    documentation. It is formatted in `reStructuredText
-    <http://sphinx-doc.org/rest.html>`__. Add additional pages by creating
-    rst-files in ``docs`` and adding them to the `toctree
-    <http://sphinx-doc.org/markup/toctree.html>`_ below. Use then
-    `references <http://sphinx-doc.org/markup/inline.html>`__ in order to link
-    them from this page, e.g. :ref:`authors <authors>` and :ref:`changes`.
+    git clone git@123.57.226.13:/expan/DevRepos/circos_report.git
 
-    It is also possible to refer to the documentation of other Python packages
-    with the `Python domain syntax
-    <http://sphinx-doc.org/domains.html#the-python-domain>`__. By default you
-    can reference the documentation of `Sphinx <http://sphinx.pocoo.org>`__,
-    `Python <http://docs.python.org/>`__, `NumPy
-    <http://docs.scipy.org/doc/numpy>`__, `SciPy
-    <http://docs.scipy.org/doc/scipy/reference/>`__, `matplotlib
-    <http://matplotlib.sourceforge.net>`__, `Pandas
-    <http://pandas.pydata.org/pandas-docs/stable>`__, `Scikit-Learn
-    <http://scikit-learn.org/stable>`__. You can add more by
-    extending the ``intersphinx_mapping`` in your Sphinx's ``conf.py``.
+Usage
+=====
 
-    The pretty useful extension `autodoc
-    <http://www.sphinx-doc.org/en/stable/ext/autodoc.html>`__ is activated by
-    default and lets you include documentation from docstrings. Docstrings can
-    be written in `Google
-    <http://google.github.io/styleguide/pyguide.html#Comments>`__
-    (recommended!), `NumPy
-    <https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt>`__
-    and `classical
-    <http://www.sphinx-doc.org/en/stable/domains.html#info-field-lists>`__
-    style.
+just type circos_report.py -h::
 
+    Usage:
+        cnv_report.py -c <parameter>
+    
+    Options:
+        -c, --conf <params>    params file for soft in yaml format
+
+Here is a sample yaml file which the following keys are needed::
+
+    cnv_annos: 
+        patient1: 22.tumor.ready.cnv.info.anno.txt
+    sv_annos: 
+        patient1: patient1.mergeavi.anno.txt
+    snv_annos: 
+        patient1: /lustre/users/zhangxu/DevWork/circos_report/tests/data/test.mutect2_snv.anno.txt
+    circos_chrom_unit: 1000000
+    circos_cnv_sv_tmp: /lustre/users/zhangxu/DevWork/circos_report/tests/data/circos_cnv_sv_template.md
+    circos_cnv_tmp: /lustre/users/zhangxu/DevWork/circos_report/tests/data/circos_cnv_template.md
+    circos_karytotype: /lustre/users/zhangxu/miniconda2/data/karyotype/karyotype.human.hg19.txt
+    circos_multi_tmp: /lustre/users/zhangxu/DevWork/circos_report/tests/data/circos_multi_template.md
+    circos_report_template: /lustre/users/zhangxu/DevWork/circos_report/tests/data/circos_report_template.md
+    circos_snv_cnv_tmp: /lustre/users/zhangxu/DevWork/circos_report/tests/data/circos_snv_cnv_template.md
+    circos_snv_sv_tmp: /lustre/users/zhangxu/DevWork/circos_report/tests/data/circos_snv_sv_template.md
+    circos_snv_tmp: /lustre/users/zhangxu/DevWork/circos_report/tests/data/circos_snv_template.md
+    circos_species: /lustre/users/zhangxu/DevWork/circos_report/tests/data/hs_circos.txt
+    circos_sv_tmp: /lustre/users/zhangxu/DevWork/circos_report/tests/data/circos_sv_template.md
 
 Contents
 ========

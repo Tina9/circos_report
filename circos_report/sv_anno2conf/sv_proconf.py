@@ -1,15 +1,13 @@
-try:
-    from config import sys
-    from config import os
-    from config import json
-    from config import jbiot
-    from config import jinja2
-except:
-    import os
-    import sys
-    import json
-    import jbiot
-    import jinja2
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+__author__ = "zhangxu"
+
+import os
+import sys
+import json
+import jbiot
+import jinja2
 
 from jbiot import jbiotWorker
 from jinja2 import Template

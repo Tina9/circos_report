@@ -14,29 +14,29 @@ def snv_filing_sep(params):
 
     title_index = open(snvinp, "r").readline().split("\t").index("VarType")
 
+    snp_name = prefix + ".snp_snp.txt"
+    indel_name = prefix + ".indel_snp.txt"
     with open(snvinp, "r") as fp:
-        for info in fp:
-            snp_line = []
-            indel_line = []
-            snp_name = prefix + ".snp_snp.txt"
-            indel_name = prefix + ".indel_snp.txt"
-            if info.split("\t")[title_index] == "snp":
-                snp_chro = info.split("\t")[0].replace("chr", "hs")
-                snp_start = info.split("\t")[1]
-                snp_kind = info.split("\t")[title_index]
-                snp_line = [snp_chro,snp_start,snp_start,snp_kind]
-                with open(snp_name, "a") as snp:
-                    snp_lines = '\t'.join(snp_line) + "\n"
-                    snp.write(snp_lines)
+        with open(snp_name, "w") as snp:
+            with open(indel_name, "w") as dele:
+                for info in fp:
+                    snp_line = []
+                    indel_line = []
+                    if info.split("\t")[title_index] == "snp":
+                        snp_chro = info.split("\t")[0].replace("chr", "hs")
+                        snp_start = info.split("\t")[1]
+                        snp_kind = info.split("\t")[title_index]
+                        snp_line = [snp_chro,snp_start,snp_start,snp_kind]
+                        snp_lines = '\t'.join(snp_line) + "\n"
+                        snp.write(snp_lines)
 
-            elif info.split("\t")[title_index] == "del" or info.split("\t")[title_index] == "ins":
-                indel_chro = info.split("\t")[0].replace("chr", "hs")
-                indel_start = info.split("\t")[1]
-                indel_kind = info.split("\t")[title_index]
-                indel_line = [indel_chro,indel_start,indel_start,indel_kind]
-                with open(indel_name, "a") as dele:
-                    indel_lines = '\t'.join(indel_line) + "\n"
-                    dele.write(indel_lines)
+                    elif info.split("\t")[title_index] == "del" or info.split("\t")[title_index] == "ins":
+                        indel_chro = info.split("\t")[0].replace("chr", "hs")
+                        indel_start = info.split("\t")[1]
+                        indel_kind = info.split("\t")[title_index]
+                        indel_line = [indel_chro,indel_start,indel_start,indel_kind]
+                        indel_lines = '\t'.join(indel_line) + "\n"
+                        dele.write(indel_lines)
 
     params["snp"] = snp_name
     params["indel"] = indel_name

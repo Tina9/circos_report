@@ -1,12 +1,12 @@
 import sys
-sys.path.append("../circos_report/circos_cmd")
-from circmd import circosCMD
+sys.path.append("../circos_report/circmd")
+from circmd import circmd
 
-params = {"outconf": "data/patient1_circos.multi.conf",}
+tarfile = {"yaml": "test_app.yaml"}
 
 def test_circosCMD():
 
-    circosCMD(params)
+    circmd(tarfile)
 
 if __name__ == "__main__":
 

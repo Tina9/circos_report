@@ -1,3 +1,13 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+__author__ = "zhangxu"
+
+try:
+    import config
+except:
+    pass
+
 import sys
 import os
 import json

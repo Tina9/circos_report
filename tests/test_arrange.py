@@ -1,13 +1,13 @@
 import sys
-sys.path.append("../circos_report/arranger")
-from arranger import arr_main
+sys.path.append("../")
+from circos_report.arranger.arrange import arrange
 
-params = {"pngs": ["patient1_circos.multi.png"]}
+params = {"yaml": "test_app.yaml"}
 
-def test_arranger():
+def test_arrange():
 
-    arr_main(params)
-    
+    arrange(params)
+
 if __name__ == "__main__":
 
-    test_arranger()
+    test_arrange()

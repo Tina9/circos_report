@@ -1,14 +1,11 @@
-import sys
-sys.path.append("../circos_report/reporter")
-from report import report
+import sys,os
+sys.path.append("../")
+from circos_report.reporter.report import report
 
-params = {"render_json":"data/report.json",
-    "report_template":"data/circos_report_template.md"}
+params = {"yaml":"test_app.yaml"}
 
 def test_report():
-
     report(params)
 
-if __name__ == "__main__":
-
+if __name__ == '__main__':
     test_report()
