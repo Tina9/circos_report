@@ -34,7 +34,7 @@ def report(params):
 
     templ = get_template("circos_report")
     out = "circos_report.md"
-    cmd = "%s -t %s -j %s -o %s -y" % (render,templ,yamlin,out)
+    cmd = "%s -t %s -j %s -o %s -y" % (render,templ,yamlfile,out)
     log.run("render circos_report template",cmd)
     
     cmd = "%s %s" % (md2html,out)
