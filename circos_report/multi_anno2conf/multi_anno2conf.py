@@ -176,7 +176,6 @@ def main_multi(params):
     outdict = {}
     outdict["circos_res"] = circos_res
     outdict["circos_text"] = "circos图由里到外依次为sv,cnv,snp和indel的结果"
-    outdict["yaml"] = yamlin
     yamlout = yamladd(yamlin, outdict)
     return yamlout
 

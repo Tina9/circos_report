@@ -142,7 +142,6 @@ def main_snv(params):
     outdict = {}
     outdict["circos_res"] = circos_res
     outdict["circos_text"] = "circos图由里到外为snp和indel的结果"
-    outdict["yaml"] = yamlin
     yamlout = yamladd(yamlin, outdict)
     return yamlout
 

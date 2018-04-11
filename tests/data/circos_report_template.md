@@ -12,7 +12,7 @@
 
 > 见文件夹 /circos展示
 
-{{ add_pngs(plot_of_circos) }}
+{{ add_pngs(circos_pngs) }}
 
 #### 解释
 

@@ -48,7 +48,7 @@ def arrange(params):
 
     #handle out
     outdict = {}
-    outdict["pngs"] = pngs
+    outdict["circos_pngs"] = pngs
     yamlout = yamladd(yamlin,outdict)
     return yamlout
 

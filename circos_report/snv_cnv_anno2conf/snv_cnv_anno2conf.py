@@ -160,7 +160,6 @@ def main_snv_cnv(params):
     outdict = {}
     outdict["circos_text"] = "circos图由里到外依次为cnv,snp和indel的结果"
     outdict["circos_res"] = circos_res
-    outdict["yaml"] = yamlin
     yamlout = yamladd(yamlin, outdict)
     return yamlout
 
