@@ -2,7 +2,7 @@ import sys
 sys.path.append("../circos_report/cnv_sv_anno2conf")
 from cnv_sv_anno2conf import main_cnv_sv
 
-params = {"yaml": "test_app.yaml"}
+params = {"yaml": "data/test_app.yaml"}
 
 def test_main_cnv_sv():
 

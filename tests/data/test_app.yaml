@@ -1,0 +1,27 @@
+circos_chrom_unit: 1000000
+circos_cnv_sv_tmp: /lustre/users/zhangxu/DevWork/circos_report/tests/data/circos_cnv_sv_template.md
+circos_cnv_tmp: /lustre/users/zhangxu/DevWork/circos_report/tests/data/circos_cnv_template.md
+circos_karytotype: /lustre/users/zhangxu/miniconda2/data/karyotype/karyotype.human.hg19.txt
+circos_multi_tmp: /lustre/users/zhangxu/DevWork/circos_report/tests/data/circos_multi_template.md
+circos_report: circos_report.md
+circos_report_template: /lustre/users/zhangxu/DevWork/circos_report/tests/data/circos_report_template.md
+circos_res:
+  patient1:
+    conf: data/patient1_circos.multi.conf
+    png: data/patient1_circos.multi.png
+circos_snv_cnv_tmp: /lustre/users/zhangxu/DevWork/circos_report/tests/data/circos_snv_cnv_template.md
+circos_snv_sv_tmp: /lustre/users/zhangxu/DevWork/circos_report/tests/data/circos_snv_sv_template.md
+circos_snv_tmp: /lustre/users/zhangxu/DevWork/circos_report/tests/data/circos_snv_template.md
+circos_species: /lustre/users/zhangxu/DevWork/circos_report/tests/data/hs_circos.txt
+circos_sv_tmp: /lustre/users/zhangxu/DevWork/circos_report/tests/data/circos_sv_template.md
+circos_text: "circos\u56FE\u7531\u91CC\u5230\u5916\u4F9D\u6B21\u4E3Asv,cnv,snp\u548C\
+  indel\u7684\u7ED3\u679C"
+cnv_annos:
+  patient1: data/22.tumor.ready.cnv.info.anno.txt
+pngs:
+- data/patient1_circos.multi.png
+snv_annos:
+  patient1: data/test.mutect2_snv.anno.txt
+sv_annos:
+  patient1: data/22.tumor.ready.mergeavi.sv.txt
+yaml: test_app.yaml

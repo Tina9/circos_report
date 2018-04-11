@@ -26,7 +26,7 @@ def report(params):
     yamlin = params["yaml"]
     indict = yaml.load(open(yamlin))
 
-    yamlfile = "circos_report.yaml"
+    yamlfile = "circos_report.json"
     paramstr = json.dumps(indict)
     cmd1 = "echo '%s' > %s " % (paramstr, yamlfile)
     tag1 = "make sure the existed yaml file"

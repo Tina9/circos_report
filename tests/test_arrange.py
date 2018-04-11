@@ -2,7 +2,7 @@ import sys
 sys.path.append("../")
 from circos_report.arranger.arrange import arrange
 
-params = {"yaml": "test_app.yaml"}
+params = {"yaml": "data/test_app.yaml"}
 
 def test_arrange():
 

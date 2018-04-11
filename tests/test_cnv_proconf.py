@@ -3,7 +3,7 @@ sys.path.append("../circos_report/cnv_anno2conf")
 from cnv_anno2conf import main_cnv
 
 
-tarfile = {"yaml": "test_app.yaml"}
+tarfile = {"yaml": "data/test_app.yaml"}
 
 def test_main_cnv():
     main_cnv(tarfile)

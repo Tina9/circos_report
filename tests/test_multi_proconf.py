@@ -2,7 +2,7 @@ import sys
 sys.path.append("../circos_report/multi_anno2conf")
 from multi_anno2conf import main_multi
 
-params = {"yaml": "test_app.yaml"}
+params = {"yaml": "data/test_app.yaml"}
 
 def test_main_multi():
 

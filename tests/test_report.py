@@ -2,7 +2,7 @@ import sys,os
 sys.path.append("../")
 from circos_report.reporter.report import report
 
-params = {"yaml":"test_app.yaml"}
+params = {"yaml":"data/test_app.yaml"}
 
 def test_report():
     report(params)

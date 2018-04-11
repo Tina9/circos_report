@@ -2,7 +2,7 @@ import sys
 sys.path.append("../circos_report/circmd")
 from circmd import circmd
 
-tarfile = {"yaml": "test_app.yaml"}
+tarfile = {"yaml": "data/test_app.yaml"}
 
 def test_circosCMD():
 

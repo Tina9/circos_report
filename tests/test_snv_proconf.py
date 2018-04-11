@@ -2,7 +2,7 @@ import sys
 sys.path.append("../circos_report/snv_anno2conf")
 from snv_anno2conf import main_snv
 
-tarfile = {"yaml": "test_app.yaml"}
+tarfile = {"yaml": "data/test_app.yaml"}
 
 def test_main_snp():
 
