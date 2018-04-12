@@ -4,6 +4,12 @@ circos_report
 
 This is the documentation of **circos_report**.
 
+
+.. Note::
+
+    code reviewed by deju @ 2018-4-12
+
+
 Installation
 ============
 use git to clone code::
